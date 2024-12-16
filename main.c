@@ -19,7 +19,6 @@ int main(void) {
 	mysql_query[strlen(mysql_query) - 1] = '\0';
 
 
-
 	mysql_close(conn);
 	mysql_library_end();
 	return EXIT_SUCCESS;
