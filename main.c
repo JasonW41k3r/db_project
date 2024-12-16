@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <mysql.h>
 #include <string.h>
+#include <windows.h>
 
 int main(void) {
 	mysql_library_init(0, NULL, NULL);
@@ -18,7 +19,7 @@ int main(void) {
 	printf("Port: ");
 	scanf("%d", &port);
 	getchar();
-	printf("User name: ");
+	printf("Username: ");
 	gets(user);
 	printf("Password: ");
 	gets(passwd);
@@ -30,6 +31,7 @@ int main(void) {
 		fprintf(stderr, "connect error! %s\n", mysql_error(conn));
 	} else {
 		printf("Successfully connect to mysql!\n");
+		Sleep(2000);
 	}
 
 	printf("Please enter your query: ");
