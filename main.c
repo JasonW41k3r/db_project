@@ -8,9 +8,25 @@ int main(void) {
 	MYSQL* conn = mysql_init(NULL);
 	MYSQL_RES* res = NULL;
 	MYSQL_ROW* row = NULL;
+	char* host = calloc(20, sizeof(char));
+	char* user = calloc(20, sizeof(char));
+	char* passwd = calloc(50, sizeof(char));
+	char* db = calloc(50, sizeof(char));
+	int port = 0;
+	printf("Host: ");
+	gets(host);
+	printf("Port: ");
+	scanf("%d", &port);
+	getchar();
+	printf("User name: ");
+	gets(user);
+	printf("Password: ");
+	gets(passwd);
+	printf("Database: ");
+	gets(db);
 	
 
-	if (mysql_real_connect(conn, "127.0.0.1", "root", "", "routeplan", 0, NULL, NULL) == NULL) {
+	if (mysql_real_connect(conn, host, user, passwd, db, port, NULL, NULL) == NULL) {
 		fprintf(stderr, "connect error! %s\n", mysql_error(conn));
 	} else {
 		printf("Successfully connect to mysql!\n");
